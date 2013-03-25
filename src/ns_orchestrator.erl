@@ -682,7 +682,8 @@ perform_bucket_flushing(BucketName, State) ->
         {ok, BucketConfig} ->
             case proplists:get_value(flush_enabled, BucketConfig, false) of
                 true ->
-                    perform_bucket_flushing_with_config(BucketName, State, BucketConfig);
+                    {reply, do_flush_old_style(BucketName, BucketConfig), idle, State};
+                    %perform_bucket_flushing_with_config(BucketName, State, BucketConfig);
                 false ->
                     {reply, flush_disabled, idle, State}
             end
