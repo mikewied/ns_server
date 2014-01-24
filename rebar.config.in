@@ -4,3 +4,4 @@
             {i, "@couchdb_src_path@/.."},
             debug_info, bin_info_opt,
             {parse_transform, ale_transform}]}.
+{d, 'DEBUG_UPR', true}.

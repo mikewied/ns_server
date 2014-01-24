@@ -234,22 +234,5 @@ get_actual_replications_as_list(State) ->
             Reps
     end.
 
--ifdef(DEBUG_UPR).
-
 get_replication_type(_Bucket) ->
     {upr, undefined}.
-
--else.
-
-get_replication_type(Bucket) ->
-    {ok, BucketConfig} = ns_bucket:get_bucket(Bucket),
-    case ns_bucket:replication_type(BucketConfig) of
-        tap ->
-            {tap, undefined};
-        upr ->
-            {upr, undefined};
-        {upr, Partitions} ->
-            {both, ordsets:from_list(Partitions)}
-    end.
-
--endif.

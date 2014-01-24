@@ -110,11 +110,7 @@ handle_packet(Type, Msg, Packet,
     end,
     {ok, State#state{ext_state = NewExtState}}.
 
--ifdef(DEBUG_UPR).
 -define(print_proxied_packet(X), ?rebalance_info("Proxy packet: ~s", [format_packet_nicely(Packet)])).
--else.
--define(print_proxied_packet(X), ok).
--endif.
 
 process_packet(<<?REQ_MAGIC:8, Opcode:8, _Rest/binary>> = Packet, State) ->
     ?print_proxied_packet(X),
