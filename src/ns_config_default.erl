@@ -1,4 +1,4 @@
-%% @author Northscale <info@northscale.com>
+% @author Northscale <info@northscale.com>
 %% @copyright 2009 NorthScale, Inc.
 %%
 %% Licensed under the Apache License, Version 2.0 (the "License");
@@ -232,6 +232,7 @@ default() ->
          "-E", path_config:component_path(lib, "memcached/bucket_engine.so"),
          "-B", "binary",
          "-r",
+	 "-v",
          "-c", "10000",
          "-e", {"admin=~s;default_bucket_name=default;auto_create=false",
                 [admin_user]},
