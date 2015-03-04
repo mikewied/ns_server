@@ -53,6 +53,7 @@ send_req(HttpDb, Params, Callback) ->
     Qs1 = get_value(qs, Params, []),
     Qs2 = [{K, ?b2l(iolist_to_binary(V))} || {K, V} <- Qs1],
     Params2 = ?replace(Params, qs, Qs2),
+    ?log_error("Preparing request ~p~n", [Params2]),
     Response = send_lhttpc_req(HttpDb, Params2),
     process_response(Response, HttpDb, Params2, Callback).
 
@@ -65,6 +66,7 @@ send_lhttpc_req(#httpdb{headers = BaseHeaders} = HttpDb, Params) ->
     Url = full_url(HttpDb, Params),
     Body = get_value(body, Params, []),
     Timeout = HttpDb#httpdb.timeout,
+    ?log_error("Method ~p~n UserHeaders ~p~n Headers1 ~p~n Headers2 ~p~n URL ~p~n Body ~p~n Timeout ~p~n", [Method, UserHeaders, Headers1, Headers2, Url, Body, Timeout]),
     CallerLhttpcOptions = lists:keysort(1, get_value(lhttpc_options, Params, [])),
     LhttpcOptions = [
         {pool, HttpDb#httpdb.httpc_pool},
