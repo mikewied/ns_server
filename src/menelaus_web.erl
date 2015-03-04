@@ -399,6 +399,8 @@ loop_inner(Req, AppRoot, Path, PathTokens) ->
                               [NodeId]};
                          ["node", "controller", "setupServices"] ->
                              {auth, fun handle_setup_services_post/1};
+                         ["query"] ->
+                             {auth, fun handle_query_request/1};
                          ["settings", "web"] ->
                              {auth, fun handle_settings_web_post/1};
                          ["settings", "alerts"] ->
@@ -616,6 +618,12 @@ loop_inner(Req, AppRoot, Path, PathTokens) ->
         {auth_check_bucket_uuid, F, Args} ->
             auth_check_bucket_uuid(Req, F, Args)
     end.
+
+handle_query_request(Req) ->
+    % Get the list of valid query nodes
+    % Create a 'DB' is one doesn't exist for the query node
+    {_, ErrCode, Resp} = query_api_wrap:send_n1ql_statement(Req),
+    reply_json(Req, Resp, ErrCode).
 
 handle_uilogin(Req) ->
     Params = Req:parse_post(),
