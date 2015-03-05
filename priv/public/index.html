@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en" np-app="cbApp"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en" ng-app="cbApp"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" ng-app="cbApp"><!--<![endif]-->
 <head>
   <title>Couchbase Console</title>
   <link rel="stylesheet" type="text/css" href="css/codemirror.css">
@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="/favicon.ico?v=2">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <script type="text/javascript" src="js/angular.min.js"></script>
 </head>
 <body class="auth nojs">
   <script>document.body.className = "auth";</script>
@@ -47,6 +48,7 @@
           <li class="line"><a class="switch_buckets" href="#visitSec=buckets">Data Buckets</a></li>
           <li class="line"><a class="switch_views" href="#visitSec=views">Views</a></li>
           <li class="line"><a class="switch_indexes" href="#visitSec=indexes">Index</a></li>
+          <li class="line_query"><a class="switch_query" href="#visitSec=query">Query</a></li>
           <li class="line"><a class="switch_replications" href="#visitSec=replications">XDCR</a></li>
           <li class="line"><a class="switch_log" href="#visitSec=log">Log</a></li>
           <li class="line" id="nav_settings_container"><a href="#visitSec=settings" class="switch_settings">Settings</a></li>
@@ -921,6 +923,9 @@
             </div>
           {% } %}
         </script>
+
+        <!-- This includes the HTML and JS for the query workbench UI -->
+		<script src="js/query_ui.js"></script>
 
         <div id="js_logs" class="logs" style="display:none">
           <!-- Shadow box -->
@@ -2094,7 +2099,7 @@
                   <span class="staleness-notice">Difficulties communicating with the cluster; displaying cached information!</span>
                 </div>
               </div>
-              <textarea id="json_doc" spellcheck="false" cols="20" rows="11"></textarea>
+              <textarea id="json_doc" class="boxsizingBorder" spellcheck="false" cols="20" rows="11"></textarea>
             </div>
           </div>
 
@@ -3717,5 +3722,6 @@ $(window).bind('template:rendered', function () {
 <script src="js/all-images.js"></script>
 <script src="js/global_progress.js"></script>
 <script src="js/app.js"></script>
+
 </body>
 </html>

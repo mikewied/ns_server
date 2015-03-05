@@ -114,6 +114,7 @@ var ThePage = {
              documents: DocumentsSection,
              log: LogsSection,
              settings: SettingsSection,
+             query: QuerySection,
              indexes: IndexesSection},
 
   coming: {alerts:true},

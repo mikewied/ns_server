@@ -33,6 +33,12 @@ input[type=radio], input[type=checkbox] {border:none}
 ::-webkit-input-placeholder {color:#999}
 :-moz-placeholder{color:#999 !important}
 
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
 /* note: .list here increases specifity w.r.t. .list .key rule */
 .list code.key, code.key { color: #333; font-weight: bold; font-size: 12px;}
 code.string { color: #393; }
@@ -95,11 +101,12 @@ a.dynamic_disabled{text-decoration:none;cursor:default;}
 .page-header {background:url('../images/header_bg.png') 0 bottom repeat-x;height:60px;}
 
 #headerNav {clear:both;height:50px;background:url('../images/navigation_bg.png') repeat-x;}
-#headerNav .contents{width:915px;margin:auto;}
+#headerNav .contents{width:995px;margin:auto;}
 #headerNav ul li {float:left;position:relative}
 #headerNav li a {display:block;text-decoration:none;padding:13px 23px 7px;line-height:27px}
 #headerNav li:hover {background:url('../images/active_hover_bg.png') repeat-x;}
 #headerNav li.currentNav {background:url('../images/active_bg.png') no-repeat center;}
+.line_query {display:show}
 .switch_overview {background:url('../images/home_icon.png') no-repeat 0.75em 50%;padding-left:2.5em !important;padding-right:1em !important}
 
 /* to position the badges in the navigation correctly */
