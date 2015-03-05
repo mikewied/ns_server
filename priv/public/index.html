@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 7 ]>    <html class="ie7" lang="en" np-app="cbApp"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en" ng-app="cbApp"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" ng-app="cbApp"><!--<![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en" np-app="mnQuery"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en" ng-app="mnQuery"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" ng-app="mnQuery"><!--<![endif]-->
 <head>
   <title>Couchbase Console</title>
-  <link rel="stylesheet" type="text/css" href="css/codemirror.css">
+  <link rel="stylesheet" type="text/css" href="js/bower_components/codemirror/lib/codemirror.css">
   <link rel="stylesheet" type="text/css" href="css/screen.css">
   <link rel="stylesheet" type="text/css" href="css/print.css">
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.couchbase.css">
@@ -12,6 +12,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/ui-codemirror.js"></script>
 </head>
 <body class="auth nojs">
   <script>document.body.className = "auth";</script>
@@ -3698,8 +3699,7 @@ $(window).bind('template:rendered', function () {
 <script src="js/tools.tabs.js"></script>
 <script src="js/jquery.cookie.js"></script>
 <script src="js/futon.format.js"></script>
-<script src="js/codemirror/codemirror.js"></script>
-<script src="js/codemirror/javascript.js"></script>
+<script src="js/bower_components/codemirror/lib/codemirror.js"></script>
 <script src="js/misc.js"></script>
 <script src="js/base64.js"></script>
 <script src="js/jst.js"></script>
