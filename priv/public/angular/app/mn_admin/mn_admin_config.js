@@ -80,6 +80,11 @@ angular.module('mnAdmin').config(function ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.admin.query', {
+      url: '/query',
+      templateUrl: 'mn_admin/mn_query/mn_query.html',
+      controller: 'mnQueryController'
+    })
     .state('app.admin.replications', {
       url: '/replications',
       templateUrl: 'mn_admin/mn_xdcr/mn_xdcr.html',

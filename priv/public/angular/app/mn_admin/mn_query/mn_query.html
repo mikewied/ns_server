@@ -1,0 +1,43 @@
+<div id="query_ui"></div>
+  <span class="block nav float_right configure_view"></span>
+  <h1>Query Workbench</h1>
+  <div id="sidebar" class="sidebar" style="width:250px;float:left">
+    <div  class="shadow_box" >
+      <div class="hdr">
+        Query Nodes
+      </div> <!-- end header -->
+      <li ng-repeat="node in nodes">
+        {{node.name}}
+      </li>
+    </div> <!-- end shadow box -->
+    <div  class="shadow_box" >
+      <div class="hdr">
+        Buckets
+      </div> <!-- end header -->
+      <li ng-repeat="bucket in buckets">
+        {{bucket.name}}	\
+      </li>
+    </div> <!-- end shadow_box -->
+  </div> <!-- end sidebar -->
+
+  <div id="query_box" class="query_box" style="margin-left:250px">
+    <div  class="shadow_box" >
+      <div class="hdr">
+        Query
+        <a ng-click="query()" class="btn_1 dynamic_enabled" style="float:right;margin:5px"><span>Run</span></a>
+        <a ng-click="explain()" class="btn_1 dynamic_enabled" style="float:right;margin:5px"><span>Explain</span></a>
+      </div>
+      <ui-codemirror ui-codemirror-opts="queryEditorOptions" ng-model="queryEditorModel"></ui-codemirror>
+    </div>
+  </div>
+
+  <div id="result_box" class="result_box" style="margin-left:250px">
+    <div class="shadow_box">
+      <div class="hdr">
+        Result
+        <a class="btn_1 dynamic_enabled" style="float:right;margin:5px" id="query_result_save"><span>Save</span></a>
+      </div>
+      <ui-codemirror ui-codemirror-opts="resultsEditorOptions" ng-model="resultsEditorModel"></ui-codemirror>
+    </div>
+  </div>
+</div>

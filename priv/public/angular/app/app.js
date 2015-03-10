@@ -149,6 +149,15 @@ angular.module('mnViewsService', [
   'mnHttp'
 ]);
 
+angular.module('mnQuery', [
+  'mnQueryService'
+]);
+
+angular.module('mnQueryService', [
+  'mnHttp',
+  'mnTasksDetails'
+]);
+
 angular.module('mnXDCR', [
   'mnXDCRService'
 ]);
@@ -191,6 +200,8 @@ angular.module('app', [
   'mnBuckets',
   'mnBucketsDetailsDialogService',
   'mnViews',
+  'mnQuery',
+  'mnQueryService',
   'mnXDCR',
   'mnXDCRService'
 
