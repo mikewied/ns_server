@@ -2,30 +2,42 @@
   <span class="block nav float_right configure_view"></span>
   <h1>Query Workbench</h1>
   <div id="sidebar" class="sidebar" style="width:250px;float:left">
-    <div  class="shadow_box" >
+    <div  class="shadow_box">
       <div class="hdr">
         Query Nodes
       </div> <!-- end header -->
-      <li ng-repeat="node in nodes">
-        {{node.name}}
-      </li>
+      <ui-select ng-model="nodeSelector.selected" theme="selectize" style="width: 232px; display: inline-block; vertical-align: middle;">
+        <ui-select-match>{{$select.selected}}</ui-select-match>
+        <ui-select-choices repeat="node in nodeSelector.nodes | filter: $select.search">
+          <span ng-bind-html="node | highlight: $select.search"></span>
+        </ui-select-choices>
+      </ui-select>
     </div> <!-- end shadow box -->
     <div  class="shadow_box" >
       <div class="hdr">
         Buckets
       </div> <!-- end header -->
-      <li ng-repeat="bucket in buckets">
-        {{bucket.name}}	\
-      </li>
+      <ui-select ng-model="bucketSelector.selected" theme="selectize" style="width: 232px; display: inline-block; vertical-align: middle;">
+        <ui-select-match>{{$select.selected}}</ui-select-match>
+        <ui-select-choices repeat="bucket in bucketSelector.names | filter: $select.search">
+          <span ng-bind-html="bucket | highlight: $select.search"></span>
+        </ui-select-choices>
+      </ui-select>
     </div> <!-- end shadow_box -->
   </div> <!-- end sidebar -->
 
   <div id="query_box" class="query_box" style="margin-left:250px">
-    <div  class="shadow_box" >
-      <div class="hdr">
-        Query
-        <a ng-click="query()" class="btn_1 dynamic_enabled" style="float:right;margin:5px"><span>Run</span></a>
-        <a ng-click="explain()" class="btn_1 dynamic_enabled" style="float:right;margin:5px"><span>Explain</span></a>
+    <div class="shadow_box">
+      <div class="header_2">
+        <h4 style="float:left;line-height:34px;">N1QL Statements</h4>
+        <div class="right" style="overflow:hidden;line-height:34px;">
+          <a ng-click="query()" class="btn_1 dynamic_enabled">
+            <span>Execute</span>
+          </a>
+          <a ng-click="explain()" class="btn_1 dynamic_enabled">
+            <span>Explain</span>
+          </a>
+        </div>
       </div>
       <ui-codemirror ui-codemirror-opts="queryEditorOptions" ng-model="queryEditorModel"></ui-codemirror>
     </div>
@@ -33,11 +45,42 @@
 
   <div id="result_box" class="result_box" style="margin-left:250px">
     <div class="shadow_box">
-      <div class="hdr">
-        Result
-        <a class="btn_1 dynamic_enabled" style="float:right;margin:5px" id="query_result_save"><span>Save</span></a>
+      <div class="header_2">
+        <h4 style="float:left;line-height:34px;">Results</h4>
+        <div class="right" style="overflow:hidden;line-height:34px;">
+          <a ng-click="save()" class="btn_1 dynamic_enabled"><span>Save</span></a>
+        </div>
       </div>
-      <ui-codemirror ui-codemirror-opts="resultsEditorOptions" ng-model="resultsEditorModel"></ui-codemirror>
+
+
+      <div ng-hide="lastResult.hide" class="panes">
+        <div class="views_list">
+          <table class="list">
+            <thead>
+              <tr>
+                <th style="text-align: center;">Status</th>
+                <th style="text-align: center;">Elapsed Time</th>
+                <th style="text-align: center;">Execution Time</th>
+                <th style="text-align: center;">Result Count</th>
+                <th style="text-align: center;">Result Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-model="lastResult">
+                <td>{{lastResult.status}}</td>
+                <td>{{lastResult.elapsedTime}}</td>
+                <td>{{lastResult.executionTime}}</td>
+                <td>{{lastResult.resultCount}}</td>
+                <td>{{lastResult.resultSize}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <ui-codemirror ui-codemirror-opts="resultsEditorOptions" ng-model="lastResult.result"></ui-codemirror>
     </div>
+
   </div>
 </div>

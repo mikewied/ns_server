@@ -159,7 +159,8 @@ angular.module('mnQueryService', [
 ]);
 
 angular.module('mnXDCR', [
-  'mnXDCRService'
+  'mnXDCRService',
+  'mnServersService'
 ]);
 angular.module('mnXDCRService', [
   'mnHttp',

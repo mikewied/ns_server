@@ -83,7 +83,15 @@ angular.module('mnAdmin').config(function ($stateProvider, $urlRouterProvider) {
     .state('app.admin.query', {
       url: '/query',
       templateUrl: 'mn_admin/mn_query/mn_query.html',
-      controller: 'mnQueryController'
+      controller: 'mnQueryController',
+      resolve: {
+        nodes: function(mnServersService) {
+          return mnServersService.getNodes();
+        },
+        buckets: function(mnBucketsService) {
+          return mnBucketsService.getBucketsState();
+        }
+      }
     })
     .state('app.admin.replications', {
       url: '/replications',
