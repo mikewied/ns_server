@@ -179,6 +179,7 @@ angular.module('app', [
   'ui.router',
   'ui.bootstrap',
   'ui.select',
+  'ui.codemirror',
   'ngSanitize',
 
   'mnWizard',
