@@ -322,6 +322,21 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
     }
   });
 
+  // this is based on the N1QL language used by Couchbase
+  CodeMirror.defineMIME("text/x-n1ql", {
+    name: "sql",
+    client: { },
+    keywords: set("all alter and any array as asc between by delete desc distinct drop element end every except exists explain first flatten for from group gsi having in index inner insert intersect into is join key keys left let letting like limit matched merge missing nest not null object offset on or order outer partition primary raw rename returning select set some then to union unnest unset update upsert use using value valued values view when where within"),
+    builtin: set("clock_millis clock_str date_add_millis date_add_millis date_add_str date_diff_millis date_diff_str date_part_millis date_part_str date_trunc_millis date_trunc_str millis str_to_millis millis_to_str millis_to_utc millis_to_zone_name now_millis now_str str_to_millis millis str_to_utc str_to_zone_name contains initcap title length lower ltrim position regexp_contains regexp_like regexp_replace repeat replace rttrim split substr title trim upper abs acos asin atan atan2 ceil degrees e exp ln log floor pi power radians random round sign sin sqrt tan trunc array_append array_avg array_concat array_contains array_count array_distinct array_ifnull array_length array_max array_min array_position array_prepend array_put array_range array_remove array_repeat array_replace array_reverse array_sort array_sum object_length object_names object_pairs object_values decode_json encode_json encoded_size poly_length greatest least ifmissing ifmissingornull ifnull missingif nullif ifinf ifnan ifnanorinf nanif neginfif posinfif base64 meta uuid is_array is_atom is_boolean is_number is_object is_string type to_array to_atom to_boolean to_number to_object to_string array_agg avg count max min sum "),
+    atoms: set("false true"),
+    operatorChars: /^[*+\-%<>!=~]/,
+    dateSQL: { },
+    support: set("commentSlashSlash decimallessFloat"),
+    hooks: {
+      "`":   hookIdentifier
+    }
+  });
+
   // the query language used by Apache Cassandra is called CQL, but this mime type
   // is called Cassandra to avoid confusion with Contextual Query Language
   CodeMirror.defineMIME("text/x-cassandra", {
@@ -332,7 +347,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
     atoms: set("false true"),
     operatorChars: /^[<>=]/,
     dateSQL: { },
-    support: set("commentSlashSlash decimallessFloat"),
+    support: set("commentSlashSlash decimallessFloat binaryNumber hexNumber"),
     hooks: { }
   });
 
