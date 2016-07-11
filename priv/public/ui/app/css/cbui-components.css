@@ -226,11 +226,22 @@ td.node_name a {
   cursor: pointer;
 }
 
-td.dynamic_healthy {
+.node-status {
   padding:0;
   width: 4px;
-  background-color:#2ca01c;
 }
+
+td.dynamic_healthy {
+    background-color: #2ca01c;
+}
+td.dynamic_unhealthy {
+    background-color: red;
+}
+td.dynamic_inactiveFailed,
+td.dynamic_warmup {
+    background-color: orange;
+}
+
 
 /* Main Header Elements ------------ */
 header .logobug {
