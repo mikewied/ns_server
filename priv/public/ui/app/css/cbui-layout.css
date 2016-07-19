@@ -90,6 +90,10 @@ width: calc(100% - 200px);
     justify-content: center;
 }
 
+.flex-grow-one {
+    flex-grow: 1;
+}
+
 .column {
   padding: 0;
   margin: 0 2rem 1rem 0;

@@ -440,6 +440,23 @@ table th span.has-menu:after {
   text-decoration:none;
 }
 
+button.icon {
+    min-width: auto;
+    padding: 0 1rem;
+}
+.fa-angle-right:before {
+    content: "\f105";
+}
+.fa-angle-left:before {
+    content: "\f104";
+}
+.fa-angle-down:before {
+    content: "\f107"
+}
+.fa-angle-up:before {
+    content: "\f106"
+}
+
 /* inserts right-caret (triangle) & down-caret after h4s with ".disclosure"
 .forms h4.disclosure:after {
   font-family: FontAwesome;
