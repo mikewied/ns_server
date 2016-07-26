@@ -247,6 +247,10 @@ td.dynamic_warmup {
     background-color: orange;
 }
 
+.back-gray {
+  padding: .5rem;
+  background-color: #ececec;
+}
 
 /* Main Header Elements ------------ */
 header .logobug {

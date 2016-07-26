@@ -1,12 +1,12 @@
 <div>
   <a
      href="javascript: window.history.back();"
-     class="margin-bottom1">&lt back to Views</a>
+     class="link-heavy margin-bottom1">&lt back to Views</a>
   <div ng-class="{fiter_opened: viewsEditingCtl.isFilterOpened}">
 
     <div ng-show="rbac.cluster.bucket[viewsEditingCtl.currentBucketName].data.read">
       <div ng-click="viewsEditingCtl.toggleSampleDocument()">
-        <div class="interim row">
+        <div class="interim row back-gray">
           <h4
              class="disclosure"
              ng-class="{disclosed: !viewsEditingCtl.isSampleDocumentClosed}">
@@ -26,7 +26,7 @@
       </div>
 
       <div
-         class="interim row padded"
+         class="interim row padded text-small"
          ng-hide="viewsEditingCtl.isSampleDocumentClosed"
          mn-spinner="viewsEditingCtl.awaitingSampleDocument()">
         <div
@@ -53,7 +53,7 @@
     </div>
 
     <div
-       class="interim row"
+       class="interim row back-gray"
        ng-click="viewsEditingCtl.toggleViews()">
       <h4
          class="disclosure"
@@ -76,14 +76,14 @@
     </div>
     <div
        ng-show="!viewsEditingCtl.isViewsClosed"
-       class="interim row padded"
+       class="interim row padded text-small"
        mn-spinner="viewsEditingCtl.awaitingViews()">
       <div
          class="flex-grow-one column"
          ng-class="{'width-8': !viewsEditingCtl.isSpatial}">
         <label for="viewcode_map">Map</label>
         <textarea
-           class="flex-grow-one width-4"
+           class="flex-grow-one width-4 text-small"
            ng-if="viewsEditingCtl.isSpatial"
            spellcheck="false"
            ng-model="viewsEditingCtl.state.currentDocument.doc.json.spatial[viewsEditingCtl.viewId]"
@@ -107,6 +107,7 @@
           </span>
         </label>
         <textarea
+           class="text-small"
            placeholder="(optional)"
            spellcheck="false"
            ng-change="viewsEditingCtl.onReduceChange(viewsEditingCtl.state.currentDocument.doc.json.views[viewsEditingCtl.viewId])"
