@@ -10,15 +10,15 @@ nav.nav-header {
 header {
   display:-webkit-flex;
   display:-ms-flexbox;
-  display:flex; 
-  -webkit-flex-wrap:no-wrap; 
-      -ms-flex-wrap:no-wrap; 
+  display:flex;
+  -webkit-flex-wrap:no-wrap;
+      -ms-flex-wrap:no-wrap;
           flex-wrap:no-wrap;
   -webkit-justify-content:flex-start;
       -ms-flex-pack:start;
-          justify-content:flex-start;   
-  -webkit-align-items: center;   
-      -ms-flex-align: center;   
+          justify-content:flex-start;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
           align-items: center;
   background-color: #4287D6;
   padding:0 1.5rem;
@@ -30,12 +30,12 @@ header {
 main {
   display:-webkit-flex;
   display:-ms-flexbox;
-  display:flex; 
-  -webkit-flex-wrap:no-wrap; 
-      -ms-flex-wrap:no-wrap; 
-          flex-wrap:no-wrap; 
-  -webkit-align-items:flex-start; 
-      -ms-flex-align:start; 
+  display:flex;
+  -webkit-flex-wrap:no-wrap;
+      -ms-flex-wrap:no-wrap;
+          flex-wrap:no-wrap;
+  -webkit-align-items:flex-start;
+      -ms-flex-align:start;
           align-items:flex-start;
   padding: 1.5rem;
   margin: 0 0 3rem 0;
@@ -67,7 +67,7 @@ width: calc(100% - 200px);
           flex-wrap: no-wrap;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
-          justify-content: space-between; 
+          justify-content: space-between;
   position: relative;
 }
 
@@ -176,6 +176,16 @@ footer {
 
 .margin-top2 {
   margin-top: 2rem;
+}
+
+.margin-bottom1 {
+  display:block;
+  margin-bottom: 1rem;
+}
+
+.margin-bottom-half {
+  display:block;
+  margin-bottom: .5rem;
 }
 
 .debug-outline {

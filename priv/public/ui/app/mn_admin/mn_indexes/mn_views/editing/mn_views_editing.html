@@ -1,6 +1,7 @@
 <div>
-  <a href="javascript: window.history.back();">&lt back to Views</a>
-
+  <a
+     href="javascript: window.history.back();"
+     class="margin-bottom1">&lt back to Views</a>
   <div ng-class="{fiter_opened: viewsEditingCtl.isFilterOpened}">
 
     <div ng-show="rbac.cluster.bucket[viewsEditingCtl.currentBucketName].data.read">
@@ -9,13 +10,15 @@
           <h4
              class="disclosure"
              ng-class="{disclosed: !viewsEditingCtl.isSampleDocumentClosed}">
-            {{viewsEditingCtl.state.sampleDocument.meta.id}}
+            Sample Document: <span class="text-normal">{{viewsEditingCtl.state.sampleDocument.meta.id}}</span>
           </h4>
           <span>
             <button
+               class="outline"
                ng-disabled="viewsEditingCtl.isPreviewRandomDisabled()"
-               ng-click="!viewsEditingCtl.isPreviewRandomDisabled() && viewsEditingCtl.previewRandomDocument($event)">Preview a Random Document</button>
+               ng-click="!viewsEditingCtl.isPreviewRandomDisabled() && viewsEditingCtl.previewRandomDocument($event)">Load Another Document</button>
             <button
+               class="outline"
                ng-disabled="viewsEditingCtl.isEditDocumentDisabled()"
                ng-click="!viewsEditingCtl.isEditDocumentDisabled() && viewsEditingCtl.goToDocumentsSection($event)">Edit Document</button>
           </span>
@@ -23,11 +26,11 @@
       </div>
 
       <div
-         class="row"
+         class="interim row padded"
          ng-hide="viewsEditingCtl.isSampleDocumentClosed"
          mn-spinner="viewsEditingCtl.awaitingSampleDocument()">
         <div
-           class="flex-grow-one width-8"
+           class="flex-grow-one width-8 column"
            spellcheck="false"
            ng-if="!viewsEditingCtl.state.sampleDocument.warnings"
            ng-model="viewsEditingCtl.state.sampleDocument.jsonJSON"
@@ -73,13 +76,14 @@
     </div>
     <div
        ng-show="!viewsEditingCtl.isViewsClosed"
-       class="row"
+       class="interim row padded"
        mn-spinner="viewsEditingCtl.awaitingViews()">
       <div
-         class="flex-grow-one"
+         class="flex-grow-one column"
          ng-class="{'width-8': !viewsEditingCtl.isSpatial}">
         <label for="viewcode_map">Map</label>
         <textarea
+           class="flex-grow-one width-4"
            ng-if="viewsEditingCtl.isSpatial"
            spellcheck="false"
            ng-model="viewsEditingCtl.state.currentDocument.doc.json.spatial[viewsEditingCtl.viewId]"
@@ -94,11 +98,13 @@
       </div>
       <div
          ng-if="!viewsEditingCtl.isSpatial"
-         class="flex-grow-one">
-        <label for="viewcode_reduce">Reduce (built in:
-          <a ng-click="viewsEditingCtl.setReduceValue('_count')">_count</a>,
-          <a ng-click="viewsEditingCtl.setReduceValue('_sum')">_sum</a>,
-          <a ng-click="viewsEditingCtl.setReduceValue('_stats')">_stats</a>)
+         class="flex-grow-one width-4">
+        <label for="viewcode_reduce">Reduce
+          <span class="text-normal">(built in:
+            <a ng-click="viewsEditingCtl.setReduceValue('_count')">_count</a>,
+            <a ng-click="viewsEditingCtl.setReduceValue('_sum')">_sum</a>,
+            <a ng-click="viewsEditingCtl.setReduceValue('_stats')">_stats</a>)
+          </span>
         </label>
         <textarea
            placeholder="(optional)"

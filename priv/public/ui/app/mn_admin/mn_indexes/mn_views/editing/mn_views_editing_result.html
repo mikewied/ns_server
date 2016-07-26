@@ -1,29 +1,32 @@
 <div>
-  <div class="interim row items-bottom">
-    <div class="row">
-      <h4>Filter Results</h4>
-      <div
-         mn-filter="viewsEditingResultCtl.filterParams"
-         items="viewsEditingResultCtl.filterItems"
-         disabled="viewsEditingResultCtl.isEmptyState()"
-         on-close="viewsEditingResultCtl.onFilterClose(params)"
-         on-reset="viewsEditingResultCtl.onFilterReset()"
-         on-open="viewsEditingResultCtl.onFilterOpen()">
-      </div>
-      <a
-         class="ellipsis"
-         href="{{viewsEditingResultCtl.generateViewHref()}}"
-         target="_blank">
-        {{viewsEditingResultCtl.getFilterParamsAsString()}}
-      </a>
-    </div>
-    <div>
+  <div class="interim row">
+    <span class="row">
+      <h4>Results</h4>
+      <span class="row text-small indent-1">
+        Filter:&nbsp;
+        <div
+           mn-filter="viewsEditingResultCtl.filterParams"
+           items="viewsEditingResultCtl.filterItems"
+           disabled="viewsEditingResultCtl.isEmptyState()"
+           on-close="viewsEditingResultCtl.onFilterClose(params)"
+           on-reset="viewsEditingResultCtl.onFilterReset()"
+           on-open="viewsEditingResultCtl.onFilterOpen()">
+        </div>&nbsp;
+        <a
+           class="ellipsis"
+           href="{{viewsEditingResultCtl.generateViewHref()}}"
+           target="_blank">
+          {{viewsEditingResultCtl.getFilterParamsAsString()}}
+        </a>
+      </span>
+    </span>
+    <div class="nowrap">
       <button
-         class="icon fa-angle-left"
+         class="icon fa-angle-left outline"
          ng-disabled="viewsEditingResultCtl.isPrevDisabled()"
          ng-click="!viewsEditingResultCtl.isPrevDisabled() && viewsEditingResultCtl.prevPage()"></button>
       <button
-         class="icon fa-angle-right"
+         class="icon fa-angle-right outline"
          ng-disabled="viewsEditingResultCtl.isNextDisabled()"
          ng-click="!viewsEditingResultCtl.isNextDisabled() && viewsEditingResultCtl.nextPage()"></button>
       <button ng-click="viewsEditingResultCtl.activate()">Show Results</button>
@@ -31,7 +34,7 @@
   </div>
 
   <div
-     class="pills"
+     class="margin-bottom-half pills"
      ng-show="viewsEditingCtl.state.isDevelopmentDocument">
     <a
        ui-sref-active="pills-selected"

@@ -72,6 +72,7 @@
   vertical-align: middle;
 }
 .ellipsis {
+  position:relative;
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
@@ -168,6 +169,10 @@ main.interim {}
 
 .interim.row {
   margin-bottom: .5rem;
+}
+
+.interim.row.padded {
+  margin: 1rem 0 1rem 0;
 }
 
 .interim.row.server-details {
@@ -356,7 +361,7 @@ header h1 {
 .pills a {
   color: #333;
   font-size: .961rem;
-  font-weight: 600;
+  font-weight: 400;
   display: inline-block;
   padding: .25rem .75rem;
   border-radius: 1rem;
@@ -414,7 +419,14 @@ table th span.has-menu:after {
 /* inserts right-caret (triangle) & down-caret before items with ".disclosure"  */
 .disclosure {
   position:relative;
-  padding-left: .75rem;
+  padding-left: 1rem;
+  cursor: pointer;
+  text-decoration:none;
+}
+
+.disclosed {
+  position:relative;
+  padding-left: 1rem;
   cursor: pointer;
   text-decoration:none;
 }
@@ -436,7 +448,7 @@ table th span.has-menu:after {
   color: #333;
   position: absolute;
   top: 0;
-  left: -1rem;
+  left: 0;
   text-decoration:none;
 }
 
@@ -478,10 +490,10 @@ button.icon {
 } */
 
 /* this inserts the magnifying glass displayed inside input fields with ".filter-input"  */
-.filter-input-group:after{  
+.filter-input-group:after{
   font-family:FontAwesome;
   content: "\f010";
-  font-size: 1rem;  
+  font-size: 1rem;
   color: #aaa;
   position:absolute;
   top: .25rem;
@@ -489,10 +501,10 @@ button.icon {
 }
 
 /* inserts the "Check Circle" icon before "Done Editing" */
-.link-manage.manage-mode:before { 
+.link-manage.manage-mode:before {
   font-family:FontAwesome;
   font-size:2rem;
-  content: "\f058";  
+  content: "\f058";
   color: #fff;
   position:absolute;
   top: 0.5rem;
@@ -503,7 +515,7 @@ button.icon {
 .alert.alert-success p:before {
   font-family:FontAwesome;
   content: "\f00c";
-  font-size: 1.125rem;  
+  font-size: 1.125rem;
   color: #2ca01c;
   position:absolute;
   top: 0;
@@ -514,7 +526,7 @@ button.icon {
 .alert.alert-warning p:before {
   font-family:FontAwesome;
   content: "\f06a";
-  font-size: 1.125rem;  
+  font-size: 1.125rem;
   color: #f5a623;
   position:absolute;
   top: 0;
@@ -525,7 +537,7 @@ button.icon {
 .alert.alert-error p:before {
   font-family:FontAwesome;
   content: "\f071";
-  font-size: 1.125rem;  
+  font-size: 1.125rem;
   color: #cc2a2e;
   position:absolute;
   top: 0;
@@ -535,7 +547,7 @@ button.icon {
 /* -- close alert icon ------------------ */
 .alert span.close {
   font-family:FontAwesome;
-  font-size: 1.125rem;  
+  font-size: 1.125rem;
   position:absolute;
   top: 0;
   cursor: pointer;
@@ -564,9 +576,9 @@ button.icon {
   cursor:pointer;
 }
 
-.cbui-tablerow-title {    
-  -webkit-flex: 1 1 65%;    
-      -ms-flex: 1 1 65%;    
+.cbui-tablerow-title {
+  -webkit-flex: 1 1 65%;
+      -ms-flex: 1 1 65%;
           flex: 1 1 65%;
   position:relative;
   white-space:nowrap;
@@ -644,7 +656,7 @@ section.status-red:last-of-type
   margin-bottom: 2rem;
 }
 
-/* CBUI TABLE ROW STATUSES --------------------- */  
+/* CBUI TABLE ROW STATUSES --------------------- */
 section.status-green {
   box-shadow: inset 8px 0 0 #2ca01c;
 }
@@ -670,7 +682,7 @@ section.status-red .cbui-tablerow-statusmsg {
   border-bottom: 1px solid #ddd;
 }
 
-.cbui-tablerow-manage ~ .row.manage-mode {  
+.cbui-tablerow-manage ~ .row.manage-mode {
   padding: .97rem 1rem 1.03rem .75rem;
 }
 
@@ -746,19 +758,20 @@ section.status-red .cbui-tablerow-statusmsg {
   -webkit-justify-content:flex-end;
       -ms-flex-pack:end;
           justify-content:flex-end;
-  border-top: 1px solid #d1d1d1;
+  border-top: 1px solid #ececec;
   margin-bottom: 0 !important;
   padding: .75rem 1rem;
 }
 
 .panel-footer a {
   margin-right: 1.5rem;
-  font-size: .961rem; 
+  font-size: .961rem;
 }
 
 /* Modal Dialog - Medium (uses Panel) ------ */
 .dialog-med {
   width: 530px;
+  margin-bottom: 2.5rem;
 }
 
 .dialog-med .panel-content {
@@ -770,7 +783,7 @@ section.status-red .cbui-tablerow-statusmsg {
 .dialog-med .panel-footer {
   -webkit-justify-content:flex-end;
       -ms-flex-pack:end;
-          justify-content:flex-end; 
+          justify-content:flex-end;
 }
 
 /* Sign In page details ------------ */
@@ -841,7 +854,7 @@ section.status-red .cbui-tablerow-statusmsg {
   color: #000;
   font-size: 1rem;
   line-height:1.8rem;
-  display:block; 
+  display:block;
 }
 
 .menu a:visited {
@@ -857,7 +870,7 @@ section.status-red .cbui-tablerow-statusmsg {
 }
 
 .menu a:active {
-  color: #000;  
+  color: #000;
 }
 
 /* Sorting ("view by...") Menu  --------- */
