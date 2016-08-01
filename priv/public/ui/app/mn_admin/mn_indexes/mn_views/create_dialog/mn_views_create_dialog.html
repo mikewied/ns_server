@@ -1,15 +1,17 @@
 <div class="dialog-med">
-  <h2 class="panel-header">
-    <span ng-show="!viewsCreateDialogCtl.isSpatial && !viewsCreateDialogCtl.isCopy">
-      Create Development View
-    </span>
-    <span ng-show="viewsCreateDialogCtl.isSpatial && !viewsCreateDialogCtl.isCopy">
-      Create Spatial Development View
-    </span>
-    <span ng-show="viewsCreateDialogCtl.isCopy">
-      Copy View
-    </span>
-  </h2>
+  <div class="panel-header">
+    <h2>
+      <span ng-show="!viewsCreateDialogCtl.isSpatial && !viewsCreateDialogCtl.isCopy">
+        Create Development View
+      </span>
+      <span ng-show="viewsCreateDialogCtl.isSpatial && !viewsCreateDialogCtl.isCopy">
+        Create Spatial Development View
+      </span>
+      <span ng-show="viewsCreateDialogCtl.isCopy">
+        Copy View
+      </span>
+    </h2>
+  </div>
   <form
      ng-submit="viewsCreateDialogCtl.onSubmit(ddocForm)"
      name="ddocForm"
@@ -28,9 +30,9 @@
                   (ddocForm.view_name.$dirty && ddocForm.view_name.$error.required)">
         Design Document and View names cannot be empty
       </span>
-      <label for="copy_view_ddoc_name">Design Document Name:</label>
+      <label for="copy_view_ddoc_name">Design Document Name</label>
       <div class="formrow form-inline">
-        <label for="copy_view_ddoc_name">_design/dev_</label>
+        <label class="checkbox" for="copy_view_ddoc_name">_design/dev_</label>
         <input
            type="text"
            id="copy_view_ddoc_name"
@@ -40,12 +42,12 @@
            required>
       </div>
       <div class="formrow">
-        <label for="copy_view_name">View Name:</label>
+        <label for="copy_view_name">View Name</label>
         <input
            type="text"
            id="copy_view_name"
            name="view_name"
-           ng-model="viewsCreateDialogCtl.ddoc.view"         
+           ng-model="viewsCreateDialogCtl.ddoc.view"
            required>
       </div>
     </div>

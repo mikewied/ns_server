@@ -170,8 +170,17 @@ footer {
 .indent-1 {
   margin-left: 1rem;
 }
+
+.padding-left-2 {
+  padding-left: 2.5rem;
+}
+
 .margin-top-1 {
   margin-top: -1rem;
+}
+
+.margin-top1 {
+  margin-top: 1rem;
 }
 
 .margin-top2 {

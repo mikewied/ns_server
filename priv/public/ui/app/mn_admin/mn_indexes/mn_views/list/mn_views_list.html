@@ -1,5 +1,5 @@
 <div>
-  <div class="interim row">
+  <div class="interim row margin-top1">
     <span class="pills">
       <a
          ui-sref="app.admin.indexes.views.list({ type: 'development' })"
@@ -43,14 +43,14 @@
 
         <tr ng-if="viewsListCtl.ddocs.ddocsAreInFactMissing">
           <td colspan="4">
-            This node doesn't host current bucket yet, so for list of design docs, please, visit different node's UI
+            This node doesn't host the current bucket. For a list of design docs, please open the web console on a different node.
           </td>
         </tr>
 
         <tr ng-if="viewsCtl.state.bucketsNames.selected && !viewsListCtl.ddocs.ddocsAreInFactMissing && !viewsListCtl.ddocs[viewsListCtl.type].length">
           <td colspan="4">
-            <span ng-show="viewsListCtl.isDevelopmentViews">There are currently no Design Documents in Development. <span class="when-roadmin-avoid-me">Click "Create Development View" above to create one.</span></span>
-            <span ng-show="!viewsListCtl.isDevelopmentViews">There are no Design Documents currently published. <span class="when-roadmin-avoid-me">Please visit "Development Views" to create one.</span></span>
+            <span ng-show="viewsListCtl.isDevelopmentViews">There are currently no design documents in development. <span class="when-roadmin-avoid-me">Click "Create Development View" above to create one.</span></span>
+            <span ng-show="!viewsListCtl.isDevelopmentViews">There are no design documents currently published. <span class="when-roadmin-avoid-me">Please visit "Development Views" to create one.</span></span>
           </td>
         </tr>
 
@@ -71,6 +71,7 @@
                ng-show="rbac.cluster.bucket[viewsCtl.state.bucketsNames.selected].views.write"
                ng-click="viewsListCtl.showDdocDeletionDialog(row.doc)">Delete</button>
             <button
+               class="outline"
                ng-disabled="(('isEmpty' | lodash:row.doc.json.views) && ('isEmpty' | lodash:row.doc.json.spatial)) || !!(viewsListCtl.tasks[row.doc.meta.id][0].type === 'view_compaction') || !!viewsListCtl.getStartedCompactions()[row.controllers.compact]"
                ng-show="rbac.cluster.bucket[viewsCtl.state.bucketsNames.selected].views.compact"
                ng-click="viewsListCtl.registerCompactionAsTriggeredAndPost(row)">Compact</button>
@@ -103,6 +104,7 @@
            ng-repeat="(key, view) in row.doc.json.views"
            ui-sref="app.admin.indexes.views.editing.result(viewsListCtl.getInitialViewsFilterParams(key, row, false))">
           <td
+             class="padding-left-2"
              colspan="3"
              class="ellipsis">
             <a href="">{{key}}</a>
@@ -126,7 +128,7 @@
            ng-repeat="(key, spatial) in row.doc.json.spatial"
            ui-sref="app.admin.indexes.views.editing.result(viewsListCtl.getInitialViewsFilterParams(key, row, true))">
           <td
-             class="ellipsis"
+             class="ellipsis padding-left-2"
              colspan="3">
             <a href="">[Spatial] {{key}}</a>
           </td>

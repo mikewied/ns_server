@@ -6,7 +6,7 @@
 
     <div ng-show="rbac.cluster.bucket[viewsEditingCtl.currentBucketName].data.read">
       <div ng-click="viewsEditingCtl.toggleSampleDocument()">
-        <div class="interim row back-gray">
+        <div class="interim row">
           <h4
              class="disclosure"
              ng-class="{disclosed: !viewsEditingCtl.isSampleDocumentClosed}">
@@ -26,7 +26,7 @@
       </div>
 
       <div
-         class="interim row padded text-small"
+         class="interim row items-top padded text-small"
          ng-hide="viewsEditingCtl.isSampleDocumentClosed"
          mn-spinner="viewsEditingCtl.awaitingSampleDocument()">
         <div
@@ -53,7 +53,7 @@
     </div>
 
     <div
-       class="interim row back-gray"
+       class="interim row"
        ng-click="viewsEditingCtl.toggleViews()">
       <h4
          class="disclosure"
@@ -63,10 +63,10 @@
       <span>
         <button
            ng-disabled="viewsEditingCtl.isViewsEditorControllsDisabled()"
-           ng-click="!viewsEditingCtl.isViewsEditorControllsDisabled() && viewsEditingCtl.saveAs($event)">Save As...</button>
+           ng-click="!viewsEditingCtl.isViewsEditorControllsDisabled() && viewsEditingCtl.saveAs($event)">Make Copy</button>
         <button
            ng-disabled="viewsEditingCtl.isViewsEditorControllsDisabled()"
-           ng-click="!viewsEditingCtl.isViewsEditorControllsDisabled() && viewsEditingCtl.save($event)">Save</button>
+           ng-click="!viewsEditingCtl.isViewsEditorControllsDisabled() && viewsEditingCtl.save($event)">Save Changes</button>
       </span>
     </div>
     <div

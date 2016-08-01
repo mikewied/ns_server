@@ -685,6 +685,16 @@ button::-moz-focus-inner {
   padding: 0;
 }
 
+button.outline.btn-small {
+  height: 1.5rem;
+  line-height: 0;
+  min-width: 2rem;
+  padding: 0;
+}
+
+.btn-small .icon {
+  top: 0;
+}
 /* HTML Tables ------------------------------------*/
 
 table {

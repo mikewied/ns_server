@@ -1,18 +1,19 @@
 <div class="dialog-med">
   <h2 class="panel-header">
-    Removing
+    Confirm Delete Bucket
   </h2>
   <div mn-spinner="bucketsDeleteDialogCtl.viewLoading">
-    <p class="panel-content">
-      <strong>Warning</strong> – Removing this bucket will result in complete data loss for this bucket. Are you sure you want to remove it?
-    </p>
+    <div class="panel-content">
+      <p class="error"><strong>Warning</strong> – Removing this bucket will result in complete data loss for this bucket.</p>
+      <p>Are you sure you want to remove it?</p>
+    </div>
     <div class="panel-footer">
       <a
          href=""
          ng-click="$dismiss()">Cancel</a>
       <button
          type="submit"
-         ng-click="bucketsDeleteDialogCtl.doDelete()">Delete</button>
+         ng-click="bucketsDeleteDialogCtl.doDelete()">Delete Bucket</button>
     </div>
   </div>
 </div>

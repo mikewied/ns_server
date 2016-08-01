@@ -3,7 +3,7 @@
   <div
      class="panel-content"
      mn-spinner="serversEjectDialogCtl.viewLoading">
-    <p>Warning! Removing this node will:</p>
+    <p class="error">Warning! Removing this node will:</p>
     <ul ng-messages="serversEjectDialogCtl.warningFlags" ng-messages-multiple>
       <li ng-message="isThereIndex">Remove indexes from the cluster and may cause queries to fail</li>
       <li ng-message="isLastIndex">Remove the last index node from the cluster so new indexes can’t be created</li>
@@ -14,7 +14,10 @@
     <p>Are you sure you want to remove this server?</p>
   </div>
   <div class="panel-footer">
-    <a href="" ng-click="$dismiss()">Cancel</a>
-    <button ng-click="serversEjectDialogCtl.doEjectServer()">Remove</button>
+    <a
+       href=""
+       ng-click="$dismiss()">Cancel</a>
+    <button
+       ng-click="serversEjectDialogCtl.doEjectServer()">Remove</button>
   </div>
 </div>
